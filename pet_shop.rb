@@ -79,3 +79,22 @@ end
 def add_pet_to_customer(customer, new_pet)
   customer[:pets] << new_pet
 end
+
+
+
+def customer_can_afford_pet(customer, pet)
+
+  customer[:cash]> pet[:price]
+
+end
+
+def sell_pet_to_customer(shop, pet, customer)
+
+  if shop[:pets].include?(pet) && customer_can_afford_pet(customer, pet)
+    customer[:pets] << pet
+    shop[:admin][:pets_sold] += 1
+    shop[:admin][:total_cash] += pet[:price]
+    customer[:cash] -= pet[:price]
+  end
+
+end
