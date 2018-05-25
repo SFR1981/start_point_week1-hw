@@ -32,7 +32,8 @@ def pets_by_breed(shop, breed)
   count
 
 end
-
+# this is where i had my revalation about using 'for pet in pets'
+# instead of a for loop, incrementing through the array index
 def find_pet_by_name(shop, name)
 
   for pet in shop[:pets]
