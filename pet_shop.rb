@@ -32,3 +32,14 @@ def pets_by_breed(shop, breed)
   count
 
 end
+
+def find_pet_by_name(shop, name)
+
+  for i in 0..shop[:pets].length - 1
+    if shop[:pets][i][:name] == name
+      pets = shop[:pets][i]
+    end
+  end
+  return pets
+
+end
