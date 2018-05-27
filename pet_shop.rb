@@ -92,10 +92,15 @@ end
 def sell_pet_to_customer(shop, pet, customer)
 
   if shop[:pets].include?(pet) && customer_can_afford_pet(customer, pet)
-    customer[:pets] << pet
-    shop[:admin][:pets_sold] += 1
-    shop[:admin][:total_cash] += pet[:price]
-    customer[:cash] -= pet[:price]
+    add_pet_to_customer(customer, pet)
+    increase_pets_sold(shop, 1)
+    add_or_remove_cash(shop, pet[:price])
+    remove_customer_cash(customer, pet[:price])
+    #and now the final touch, removing the pet from the shop
+    # it passes the tests without this, but that hardly seems fair
+    remove_pet_by_name(shop, pet)
+    #pet is finally free of the shop! 
+
   end
 
 end
