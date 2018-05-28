@@ -85,7 +85,7 @@ end
 
 def customer_can_afford_pet(customer, pet)
 
-  customer[:cash]> pet[:price]
+  customer[:cash]>= pet[:price]
 
 end
 
@@ -99,7 +99,7 @@ def sell_pet_to_customer(shop, pet, customer)
     #and now the final touch, removing the pet from the shop
     # it passes the tests without this, but that hardly seems fair
     remove_pet_by_name(shop, pet)
-    #pet is finally free of the shop! 
+    #pet is finally free of the shop!
 
   end
 
